@@ -1,0 +1,18 @@
+<!DOCTYPE intellij-compat PUBLIC "Plugin/DTD"
+        "https://raw.githubusercontent.com/JetBrains/intellij-scala/2c574a63cb135870cfdc4a66c665938907732d89/scala/scala-impl/src/org/jetbrains/plugins/scala/components/libextensions/intellij-compat.dtd">
+<intellij-compat>
+    <name>Shapeless support</name>
+    <description>This provides type inference for shapless macros</description>
+    <version>3.2.2-1</version>
+    <vendor>JetBrains</vendor>
+    <ideaVersion since-build="2018.1.0" until-build="2018.2.0">
+    <extension interface="org.jetbrains.plugins.scala.lang.macros.evaluator.ScalaMacroTypeable"
+                       implementation="org.jetbrains.scala.libextensions.test.MacroShowableSupport">
+                <description>Support for Generic macro</description>
+            </extension>
+        <extension interface="org.jetbrains.plugins.scala.lang.macros.evaluator.ScalaMacroExpandable"
+                   implementation="org.jetbrains.scala.libextensions.test.MacroDynamicSupport">
+            <description>Support for Generic macro</description>
+        </extension>
+    </ideaVersion>
+</intellij-compat>
