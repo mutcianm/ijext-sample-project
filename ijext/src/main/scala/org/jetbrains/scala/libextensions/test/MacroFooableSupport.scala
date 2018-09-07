@@ -5,7 +5,7 @@ import org.jetbrains.plugins.scala.lang.psi.api.statements.ScFunction
 import org.jetbrains.plugins.scala.lang.psi.impl.ScalaPsiElementFactory
 import org.jetbrains.plugins.scala.lang.psi.types.{ScParameterizedType, ScType}
 
-class MacroShowableSupport extends ScalaMacroTypeable {
+class MacroFooableSupport extends ScalaMacroTypeable {
   override val boundMacro: Seq[MacroImpl] =
     MacroImpl("materialize", "org.jetbrains.scala.libextensions.test.Fooable") :: Nil
 

@@ -1,23 +1,26 @@
 organization in ThisBuild := "org.jetbrains"
 
-version in ThisBuild := "0.3.3"
+version in ThisBuild := "0.3.8"
 
 scalaVersion in ThisBuild := "2.12.6"
 
-ideaBuild := "182.2949.4"
+ideaBuild in ThisBuild := "182.4323.6"
 
-lazy val root = project.in(file(".")).settings(
-  name := "librarymanager-test",
+ideaPluginName in ThisBuild := "library-test-ijext"
+
+lazy val library = project.in(file("library")).settings(
+  name := "library-test",
   libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
 )
 
-
-lazy val support = project.in(file("ijext")).dependsOn(root).settings(
-  name := "librarymanager-test-ijext",
+lazy val support = project.in(file("ijext")).dependsOn(library).settings(
+  name := "library-test-ijext",
   crossPaths := false,
-  unmanagedJars in Compile += file("/home/miha/IdeaProjects/scala-plugin-for-ultimate/target/scala-2.12/scalaultimate_2.12-0.1-SNAPSHOT.jar")
-).aggregate(root)
+  ideaExternalPlugins += IdeaPlugin.Id("Scala", "org.intellij.scala", None),
+).aggregate(library)
 
-lazy val testProject = project.in(file("test-project")).settings(
-  libraryDependencies += "org.jetbrains" %% "librarymanager-test" % "0.3.2"
-)
+lazy val testProject = project.in(file("test-project"))
+  .settings(
+//    uncomment and reimport project after running support/publishLocal
+//    libraryDependencies += "org.jetbrains" %% "library-test" % (version in ThisBuild).value
+  )
