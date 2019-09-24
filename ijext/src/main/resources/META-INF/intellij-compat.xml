@@ -4,9 +4,9 @@
     <name>Library test support</name>
     <id>ibextensions.test</id>
     <description>This provides dummy support for testing</description>
-    <version>0.3.8</version>
+    <version>0.3.9</version>
     <vendor>JetBrains</vendor>
-    <ideaVersion since-build="2018.1.0" until-build="2018.4.0">
+    <ideaVersion since-build="2019.1.0" until-build="2019.4.0">
     <extension interface="org.jetbrains.plugins.scala.lang.macros.evaluator.ScalaMacroTypeable"
                        implementation="org.jetbrains.scala.libextensions.test.MacroFooableSupport">
                 <description>Support for genFoo macro</description>

@@ -11,7 +11,7 @@ class MacroFooableSupport extends ScalaMacroTypeable {
 
   override def checkMacro(macros: ScFunction, context: MacroContext): Option[ScType] = {
     val tpe = context.expectedType match {
-      case Some(ScParameterizedType(_, Seq(tp))) => tp.canonicalText
+      case Some(tp:ScParameterizedType) => tp.typeArguments.headOption.map(_.canonicalText)
       case _ => return None
     }
     val txt = s"_root_.org.jetbrains.scala.libextensions.test.Fooable[$tpe] { def foo: $tpe }"
